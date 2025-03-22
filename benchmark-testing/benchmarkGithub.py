@@ -7,8 +7,8 @@ import json
 
 # Configure paths
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-audio_path = r"C:\Users\willi\Documents\GitHub\CS8000-MLSys\benchmark-testing\audio_files"
-output_path = r"C:\Users\willi\Documents\GitHub\CS8000-MLSys\benchmark-testing\transcripts"
+audio_path = r"audio_files"
+output_path = r"transcripts"
 os.makedirs(output_path, exist_ok=True)
 
 # Get audio files
@@ -34,7 +34,7 @@ for model_name in model_list:
             model = whisper.load_model(
                 name=model_name,
                 device=device,
-                download_root=r"C:\Users\willi\Documents\GitHub\CS8000-MLSys\models"
+                download_root=r"models"
             )
             
             # Warmup
