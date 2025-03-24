@@ -57,27 +57,27 @@ for model_name in model_list:
                     fp16=use_fp16
                 )
                 
-                output_path = file + "/" + output_path 
+                output_path2 = file + "/" + output_path 
 
                 # Save transcript
-                output_file = os.path.join(output_path, f"{os.path.splitext(file)[0]}_{model_name}_fp16_{use_fp16}.txt")
+                output_file = os.path.join(output_path2, f"{os.path.splitext(file)[0]}_{model_name}_fp16_{use_fp16}.txt")
                 with open(output_file, 'w', encoding='utf-8') as f:
                     f.write(result['text'])
                 
                 # Save full results as JSON
-                json_file = os.path.join(output_path, f"{os.path.splitext(file)[0]}_{model_name}_fp16_{use_fp16}.json")
+                json_file = os.path.join(output_path2, f"{os.path.splitext(file)[0]}_{model_name}_fp16_{use_fp16}.json")
                 with open(json_file, 'w', encoding='utf-8') as f:
                     json.dump(result, f, indent=2)
                 
                 total_time += time.perf_counter() - start
                 
                 # Load real transcript
-                real_transcript_path = os.path.join(output_path, f"{os.path.splitext(file)[0]}_REAL.txt")
+                real_transcript_path = os.path.join(output_path2, f"{os.path.splitext(file)[0]}_REAL.txt")
                 with open(real_transcript_path, 'r', encoding='utf-8') as f:
                     real_transcript = f.read().strip()  # Read and remove extra spaces
 
                 # Load Whisper output transcript
-                output_file = os.path.join(output_path, f"{os.path.splitext(file)[0]}_{model_name}_fp16_{use_fp16}.txt")
+                output_file = os.path.join(output_path2, f"{os.path.splitext(file)[0]}_{model_name}_fp16_{use_fp16}.txt")
                 with open(output_file, 'r', encoding='utf-8') as f:
                     predicted_transcript = f.read().strip()
 
@@ -87,7 +87,7 @@ for model_name in model_list:
 
             avg_time = total_time / len(file_list)
             print(f"Average time per file: {avg_time:.2f}s")
-            print(f"Transcripts saved to: {output_path}")
+            print(f"Transcripts saved to: {output_path2}")
             
         except Exception as e:
             print(f"Error with {model_name} FP16={use_fp16}: {str(e)}")
