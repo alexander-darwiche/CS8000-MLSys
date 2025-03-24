@@ -64,7 +64,6 @@ for model_name in model_list:
                 output_file = os.path.join(output_path2, f"{os.path.splitext(file)[0]}_{model_name}_fp16_{use_fp16}.txt")
                 with open(output_file, 'w', encoding='utf-8') as f:
                     f.write(result['text'])
-                    predicted_transcript = f.read().strip()
                 
                 # Save full results as JSON
                 json_file = os.path.join(output_path2, f"{os.path.splitext(file)[0]}_{model_name}_fp16_{use_fp16}.json")
