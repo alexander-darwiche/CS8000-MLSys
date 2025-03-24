@@ -20,8 +20,8 @@ if not file_list:
     exit(1)
 
 # Benchmark configuration
-model_list = ['base']#,'small','tiny','medium','large-v2','turbo']
-fp16_options = [True]#, False]
+model_list = ['base','small','tiny','medium','large-v2','turbo']
+fp16_options = [True, False]
 
 print(f"Using device: {device}")
 print(f"Found {len(file_list)} audio files")
