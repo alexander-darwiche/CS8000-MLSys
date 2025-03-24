@@ -73,14 +73,14 @@ for model_name in model_list:
                 
                 total_time += time.perf_counter() - start
                 
-                # Load real transcript
-                real_transcript_path = os.path.join(output_path2, f"{os.path.splitext(file)[0]}_REAL.txt")
-                with open(real_transcript_path, 'r', encoding='utf-8') as f:
-                    real_transcript = f.read().strip()  # Read and remove extra spaces
+                # # Load real transcript
+                # real_transcript_path = os.path.join(output_path2, f"{os.path.splitext(file)[0]}_REAL.txt")
+                # with open(real_transcript_path, 'r', encoding='utf-8') as f:
+                #     real_transcript = f.read().strip()  # Read and remove extra spaces
 
-                # Compute WER
-                wer = wer(real_transcript, predicted_transcript)
-                print(f"WER: {wer:.2%}")
+                # # Compute WER
+                # wer = wer(real_transcript, predicted_transcript)
+                # print(f"WER: {wer:.2%}")
 
             avg_time = total_time / len(file_list)
             print(f"Average time per file: {avg_time:.2f}s")
