@@ -79,7 +79,7 @@ for model_name in model_list:
                     real_transcript = f.read().strip()  # Read and remove extra spaces
                 
                 # Load real transcript
-                predicted_transcript_path = os.path.join(output_path2, f"{os.path.splitext(file)[0]}_{model_name}_fp16_{use_fp16}.json")
+                predicted_transcript_path = os.path.join(output_path2, f"{os.path.splitext(file)[0]}_{model_name}_fp16_{use_fp16}.txt")
                 with open(predicted_transcript_path, 'r', encoding='utf-8') as f:
                     predicted_transcript = f.read().strip()  # Read and remove extra spaces
 
