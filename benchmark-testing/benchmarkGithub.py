@@ -20,8 +20,8 @@ if not file_list:
     exit(1)
 
 # Benchmark configuration
-model_list = ['base']#,'small','tiny','medium','large-v2','turbo']
-fp16_options = [True]#, False]
+model_list = ['base','small','tiny','medium','large-v2','turbo']
+fp16_options = [True, False]
 
 print(f"Using device: {device}")
 print(f"Found {len(file_list)} audio files")
@@ -62,7 +62,7 @@ for model_name in model_list:
 
                 # Save transcript
                 output_file = os.path.join(output_path2, f"{os.path.splitext(file)[0]}_{model_name}_fp16_{use_fp16}.txt")
-                with open(output_file, 'rw', encoding='utf-8') as f:
+                with open(output_file, 'w', encoding='utf-8') as f:
                     f.write(result['text'])
                     predicted_transcript = f.read().strip()
                 
@@ -73,14 +73,19 @@ for model_name in model_list:
                 
                 total_time += time.perf_counter() - start
                 
-                # # Load real transcript
-                # real_transcript_path = os.path.join(output_path2, f"{os.path.splitext(file)[0]}_REAL.txt")
-                # with open(real_transcript_path, 'r', encoding='utf-8') as f:
-                #     real_transcript = f.read().strip()  # Read and remove extra spaces
+                # Load real transcript
+                real_transcript_path = os.path.join(output_path2, f"{os.path.splitext(file)[0]}_REAL.txt")
+                with open(real_transcript_path, 'r', encoding='utf-8') as f:
+                    real_transcript = f.read().strip()  # Read and remove extra spaces
+                
+                # Load real transcript
+                predicted_transcript_path = os.path.join(output_path2, f"{os.path.splitext(file)[0]}_{model_name}_fp16_{use_fp16}.json")
+                with open(predicted_transcript_path, 'r', encoding='utf-8') as f:
+                    predicted_transcript = f.read().strip()  # Read and remove extra spaces
 
-                # # Compute WER
-                # wer = wer(real_transcript, predicted_transcript)
-                # print(f"WER: {wer:.2%}")
+                # Compute WER
+                wer = wer(real_transcript, predicted_transcript)
+                print(f"WER: {wer:.2%}")
 
             avg_time = total_time / len(file_list)
             print(f"Average time per file: {avg_time:.2f}s")
