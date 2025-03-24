@@ -29,7 +29,7 @@ print(f"Found {len(file_list)} audio files")
 for model_name in model_list:
     # Test with and without FP16 Quantization
     for use_fp16 in fp16_options:
-        print(f"\nBenchmarking {model_name} with FP16={use_fp16}")
+        print(f"\nBenchmarking {model_name} with FP16={use_fp16}", flush=True)
         
         try:
             # Load model
@@ -46,7 +46,7 @@ for model_name in model_list:
             # Benchmark and save transcripts
             total_time = 0.0
             for file in file_list:
-                print("Testing the speed of: " + str(file) + " with Model Type: " + str(model_name))
+                print("Testing the speed of: " + str(file) + " with Model Type: " + str(model_name), flush=True)
                 start = time.perf_counter()
                 
                 # Transcribe
@@ -84,7 +84,7 @@ for model_name in model_list:
 
                 # Compute WER
                 wer = wer(real_transcript, predicted_transcript)
-                print(f"WER: {wer:.2%}")
+                print(f"WER: {wer:.2%}", flush=True)
 
             avg_time = total_time / len(file_list)
             print(f"Average time per file: {avg_time:.2f}s")
