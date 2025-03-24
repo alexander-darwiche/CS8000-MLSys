@@ -19,13 +19,14 @@ if not file_list:
     exit(1)
 
 # Benchmark configuration
-model_list = ['medium', 'large-v2']
+model_list = ['base','small','tiny','medium','large-v2','turbo']
 fp16_options = [True, False]
 
 print(f"Using device: {device}")
 print(f"Found {len(file_list)} audio files")
 
 for model_name in model_list:
+    # Test with and without FP16 Quantization
     for use_fp16 in fp16_options:
         print(f"\nBenchmarking {model_name} with FP16={use_fp16}")
         
