@@ -1,0 +1,274 @@
+Hear that? That's the sound of plotting wavelets
+to analyze an ECG signal on a Mac. It's hard work. That's not hard. Try driving a bunch of kids to practice, and then coaching them when you get there. Layups! Ha! You think that's hard? Try beating these guys. Back to Lionel Messi! I gotta get back to work. It's not like it's astrophysics. Mapping the structure of the galaxy,
+now that's hard work. Not a fan of the galaxy. Well, my paper's due today,
+and I haven't even started yet. Why do I always make this so hard? I'm working so hard I can't even talk
+to y'all right now. Nah, I'm working so hard
+I can't even look at you. ♪ ♪ Okay. Oh! You make it look easy, but at Porsche, we make it look perfect. Can I trade with the Porsche guy? Nein. Learning how to take deep breaths... Can be very hard work. Break time's over. Hard work never stops Girls Who Code. It's not that hard. What? Sorry, can't hear you over the sound
+of all this hard work. Hard work. Hard work. Hard work. - Ooh.
+- Hard work. Oh, that's hard. But is it as hard as breathing? Nothing is harder than... animation! Yeah, but you're on a Mac, so... How hard can it be? ♪ ♪ ♪ ♪ ♪ ♪ ♪ ♪ Tim Cook:
+Good evening and welcome to Apple Park! Tonight, we're doing something special to celebrate a product we all love, the Mac! Like we just saw,
+the Mac inspires us to be creative, to be productive,
+and to do the best work of our lives. We continue to push the Mac forward. It has been completely transformed
+by Apple silicon, with its game-changing performance, advanced technologies,
+and industry-leading power efficiency. Apple silicon has driven the creation
+of the strongest and most capable lineup
+in the history of the personal computer. And this transformation
+has been especially profound for MacBook Air and MacBook Pro. The remarkable efficiency of Apple silicon
+has given them incredible performance, extraordinary battery life,
+and unprecedented capabilities, all in amazingly compact designs. They are the best in the industry by far. Tonight we're introducing a new family
+of breakthrough chips and bringing them
+to the world's best pro laptop, MacBook Pro. Here's Johny to tell you more. ♪ ♪ Johny Srouji:
+Welcome to my lab. Apple silicon has completely redefined
+the Mac laptop experience. Every aspect of its architecture
+is designed for performance and power efficiency. Our state-of-the-art designs
+pack tremendous performance and capabilities into a very small chip, which is ideal for our amazing laptops. The industry-leading
+power efficiency of Apple silicon results in extraordinary battery life
+and phenomenal performance, whether you're plugged in or not. And with advanced technologies
+like the unified memory architecture, Neural Engine, and Media Engine, Macs can do things
+no other laptops can do. Tonight, we're doing something
+we haven't done before, as we bring our latest technologies
+to a broader set of users more rapidly than ever. We're launching the next generation
+of Apple silicon for the Mac, by debuting three breakthrough chips
+at the same time. Introducing M3, M3 Pro, and M3 Max. They feature a number
+of groundbreaking technologies, and show how far
+Apple silicon for the Mac has come since the debut of the M1 family. To start, they're the first chips
+for a personal computer built using the industry-leading
+3 nanometer technology. Utilizing state-of-the-art,
+extreme ultraviolet lithography, 3 nanometer technology
+creates transistors that are so small, you could fit 2 million of them
+in the cross section of a human hair. We use these cutting-edge transistors to
+advance every component of these new chips to deliver increased performance
+and new features to every chip in the family. The biggest advancement comes to the GPU. The M3 family of chips introduces
+a next-generation GPU that takes the largest leap forward
+in graphics architecture ever for Apple silicon. It starts with a new microarchitecture
+that has a breakthrough feature we call Dynamic Caching,
+an industry first. In a traditional graphics architecture, software determines the amount
+of local GPU memory that's allocated to upcoming tasks at compile time. This results in reserving
+the same amount of memory for every task based on the needs
+of the single most demanding task, which means the GPU is under utilized especially with complex programs. In our next-generation GPU, local memory gets dynamically allocated in hardware in real time. So only the exact amount of memory
+that is needed is used for each task. This dramatically increases
+the average utilization of the GPU, which significantly increases performance
+for the most demanding pro apps and games. This is an industry first,
+transparent to developers, and the cornerstone
+of our new GPU architecture. This next-generation GPU also brings
+new rendering features to Apple silicon, like hardware-accelerated mesh shading. Mesh shading brings greater capability
+and efficiency to geometry processing, enabling more visually complex scenes. Finally, the new GPU architecture
+brings hardware-accelerated ray tracing to the Mac for the first time. Ray tracing models
+the physical properties of light as it interacts with a scene, enabling games to render
+more accurate shadows and reflections to create more realistic environments. And pro 3D rendering apps
+can produce stunning ray traced visuals faster than ever. In fact, the combination
+of hardware-accelerated ray tracing and the new graphics architecture
+allows pro apps to deliver up to two and a half times
+faster rendering performance than the M1 family of chips. This is a monstrous improvement
+for the most demanding graphics tasks. This new GPU architecture
+is a breakthrough and will bring a whole new level
+of graphics performance to the Mac. Now, let's look at the M3 family's
+next-generation CPU cores. The performance cores are up to 30% faster
+than the M1 family, while maintaining
+their fantastic power efficiency. And the efficiency cores take
+an even bigger leap in performance for many typical tasks, up to 50% faster. We've added these architecture
+and performance improvements while maintaining
+our industry-leading performance per watt. Let's look at how far we've come
+since the M1. This architecture is able to deliver the same multithreaded
+CPU performance as M1, with just half the power! And the GPU is able to deliver
+the same performance as the M1, using nearly half the power as well. These are tremendous gains
+in performance per watt! Now when we compare it against
+the latest 12-core PC laptop chip, it delivers the same CPU performance using just one quarter of the power! And when we compare it
+to the GPU performance of that chip, it delivers the same performance
+using just one fifth of the power! It's incredible! M3, M3 Pro, and M3 Max also have
+a faster and more efficient Neural Engine that is a breathtaking 60% faster
+than the M1 family, making AI even faster while keeping data on-device
+to preserve privacy. The M3 family has also
+our advanced Media Engine for hardware acceleration
+of the most popular video codecs. And now it includes support for AV1, enabling power-efficient playback of streaming video from YouTube,
+Netflix, and other services. The state-of-the-art technologies
+in the M3 family of chips result in a huge leap forward
+for Apple silicon for the Mac. And with our scalable architecture, we tailor each M-Series chip
+for different user needs, delivering best-in-class features
+to every user. Starting with the M3 chip, which delivers phenomenal performance
+for our most popular systems. It features an 8-core CPU and our next-generation 10-core GPU, and is up to 65% faster than M1. M3 Pro scales up that design
+with increased capabilities for users who need even more performance. It has a 12-core CPU, an 18-core GPU, and is up to 40% faster than M1 Pro. And finally,
+M3 Max takes it even further to deliver a tremendous leap
+in performance for the most demanding pro workloads. It features a 16-core CPU
+and a 40-core GPU, and it now supports up to
+a massive 128GB of unified memory, enabling AI developers to work with
+even larger transformer models with billions of parameters. M3 Max is up to 80% faster than M1 Max. That's a giant leap in performance
+in just two years! So that's the groundbreaking M3,
+M3 Pro, and M3 Max. With 3 nanometer technology, a next-generation GPU architecture, a higher performance CPU, faster Neural Engine, and support for even more unified memory, they're the most advanced chips
+ever built for a personal computer. Now to tell you about the incredible
+new products that get these new chips, I'll hand it over to John. ♪ ♪ John Ternus: We're thrilled to introduce
+the third generation of M-series chips. Their tremendous performance
+and power efficiency take MacBook Pro to a whole new level. Our vision for MacBook Pro
+is to deliver extraordinary performance and remarkable capabilities
+without sacrificing portability, enabling workflows that were
+previously impossible on a laptop. Every aspect of MacBook Pro
+is best in class, from its amazing performance
+and industry-leading battery life to its brilliant XDR display,
+built-in camera, immersive sound system,
+and wide array of connectivity. That's why it's used by so many pros
+in so many different ways to take on their most demanding tasks and do their life's best work,
+wherever they are. It's simply the world's best pro laptop. And with the M3 family of chips,
+it gets even better, making it a monster upgrade for anyone
+still on an Intel-based MacBook Pro. Introducing the new MacBook Pro. It raises the bar yet again
+for what a pro laptop can do. And to tell you all about it, here's Kate. ♪ ♪ Kate Bergeron:
+The new MacBook Pro is scary fast. And with M3, M3 Pro, and M3 Max, there's a perfect model for everyone. Let's begin with the 14-inch MacBook Pro. It now starts with the M3 chip, making it the ideal laptop
+for users pursuing their passions. Whether you're a student,
+entrepreneur, creator, or combination of all three, you'll find everyday tasks lightning fast. And when you're using pro apps
+or playing games, the advanced thermal system allows you to
+sustain the phenomenal performance of M3. In fact, the 14-inch MacBook Pro with M3
+is up to 60% faster than the 13-inch MacBook Pro with M1. So it's great for working with demanding
+content across a variety of workflows. Such as making intricate 3D models
+in SketchUp faster than before. Or viewing and interacting
+with large medical images in SurgicalAR with stunning detail on the XDR display. And hardware-accelerated ray tracing
+enables gameplay with incredibly realistic lighting,
+shadows, and reflections in games like Myst. Next let's talk about the 14- and 16-inch
+MacBook Pro with M3 Pro, which provides even greater performance
+and additional unified memory for users with more demanding workflows like coders, creative pros,
+and researchers. With M3 Pro,
+MacBook Pro is up to 40% faster than the 16-inch model with M1 Pro. So stitching together and manipulating
+enormous panoramic photos in Photoshop is much quicker, working on large and complex data models
+in MATLAB is more fluid, and compiling and testing millions
+of lines of code in Xcode is even faster. And MacBook Pro with M3 Pro
+can do all of this while also driving
+two external high-resolution displays. Now let's turn to MacBook Pro with M3 Max. For users with extreme workflows
+like AI developers, 3D artists, and video professionals,
+it's an absolute beast. It provides performance and capabilities
+that push the limits of computing. With M3 Max, it's up to
+two and a half times faster than the 16-inch MacBook Pro with M1 Max. Thanks to the next-generation
+GPU architecture in M3 Max, you can model and iterate
+remarkably complex 3D content in Cinema 4D with Redshift. And you can do it faster than ever even while away from the studio. And video post-production work
+on the highest resolution content in apps like DaVinci Resolve,
+Premiere Pro, or Final Cut Pro is an absolute breeze
+thanks to two ProRes engines. MacBook Pro with M3 Max also supports up to an enormous 128GB of unified memory. We first introduced support
+for this amount of memory on the powerful Mac Studio with M1 Ultra. And now, just 18 months later
+we're bringing it to MacBook Pro. This enables creators to easily work
+on large and complex projects spanning multiple pro apps and plugins, like Substance 3D Painter,
+Maya, and Arnold. Or compose huge film scores
+with Pro Tools, where entire orchestral libraries
+are instantly available from memory. MacBook Pro with M3 Max can drive
+four high-resolution external displays, providing a vast amount
+of screen real estate for users who need an even larger canvas. And all models of the MacBook Pro
+deliver the same phenomenal performance whether plugged in or on battery, unlike many PC laptops. To top it off,
+the new MacBook Pro provides up to an extraordinary
+22 hours of battery life for the ultimate in pro portability, whether you're working all day
+or all night. These are the most powerful laptops
+we've ever created. They're a big upgrade for any user, but for those users
+who haven't yet upgraded from Intel, the new MacBook Pro
+will change the game in every way. First, it's up to
+a massive 11 times faster than the fastest Intel-based model. Everything you do
+will be unbelievably responsive. And thanks to the power efficiency
+of Apple silicon, for the vast majority of workloads,
+you'll never hear the fans. You'll also get up to a spectacular
+11 additional hours of battery life. And on top of this remarkable performance
+and battery life, you get all these great features. And of course,
+you also get the industry-leading Liquid Retina XDR display, which is unrivaled
+for creating and enjoying content. With its exceptional 1000 nits sustained and 1600 nits of peak brightness
+for HDR content, impressive contrast ratio, vivid colors,
+and outstanding viewing angle, the Liquid Retina XDR display
+is the world's best laptop display. And with the new MacBook Pro,
+it gets even better. SDR content is displayed
+at up to 600 nits, which is 20% brighter than before. And users connecting
+to the Studio Display, which also supports up to 600 nits, have consistent brightness
+across their workflows. Finally, we have something really special
+for our users. MacBook Pro with M3 Pro and M3 Max comes in a stunning new color that's unmistakably pro. And here it is. ♪ ♪ ♪ ♪ ♪ ♪ Introducing MacBook Pro in Space Black. It's a gorgeous, dark aluminum finish. Not only that,
+we're using a breakthrough chemistry that forms an anodization seal
+that greatly reduces fingerprints. Space Black looks absolutely amazing. MacBook Pro is also built to last. The enclosure is created
+from a custom alloy that uses 100% recycled aluminum. This material is incredibly durable,
+so it's great for our users, who can count on MacBook Pro
+for many years of use. And it's an important aspect
+of conserving Earth's finite resources and reaching our goal
+of carbon neutral products by 2030. Bringing the new MacBook Pro to life
+is macOS Sonoma. It has great new features
+like widgets on your desktop, so you can easily view the weather,
+check items off your Reminders list, or see exciting new Apple TV+ series
+like Monarch: Legacy of Monsters. Let's take a quick peek. ♪ ♪ Monarch: Legacy of Monsters looks awesome, and it's coming to Apple TV+ next month. And macOS Sonoma takes full advantage
+of all the capabilities of Apple silicon, with powerful new features for pros. Like the new performance mode
+in Screen Sharing, which enables extremely responsive
+remote access to another Mac. So pros can securely work
+on their highest-quality content from anywhere. And Game Mode,
+which prioritizes graphics tasks to deliver consistently high frame rates and drastically reduces latency
+with your wireless accessories. So you can enjoy
+even more immersive gameplay in your favorite titles,
+like Baldur's Gate 3. No matter what your passions are
+in work and in life, there's a MacBook Pro
+that's perfect for you. ♪ ♪ With a faster CPU and GPU, the 14-inch MacBook Pro with M3
+offers immense capability. It provides incredible power
+and versatility for users like students, business owners, and aspiring musicians, who can use hundreds of tracks, plugins,
+and virtual instruments in Logic Pro to bring their musical ideas to life. MacBook Pro with M3 Pro delivers
+even greater CPU and GPU performance, allowing professionals to iterate faster while working on
+even more demanding tasks. It's perfect for users like
+software developers, industrial designers,
+and biomedical researchers, who can visualize digital pathology images containing billions of pixels
+in apps like QuPath or work with powerful DNA sequencing
+technology in apps like MinKNOW. And because MacBook Pro delivers
+the same incredible performance whether plugged in or on battery, users can seamlessly
+move their workflows anywhere. With its monster CPU and GPU
+and a massive amount of unified memory, MacBook Pro with M3 Max
+delivers unprecedented performance for intense workflows. It's an amazing tool
+for machine learning programmers, 3D animators, and video editors, who can easily work with multiple streams
+of 8K video in Premiere Pro. So that's the remarkably powerful
+and capable new MacBook Pro. With the power of the M3 family of chips, up to 22 hours of battery life, a stunning Liquid Retina XDR display, and advanced connectivity, there's simply no other laptop
+like MacBook Pro. Now, back to John. ♪ ♪ John: With the next generation
+of M-series chips, the new MacBook Pro brings
+our most advanced technologies to the broadest set of users yet. And we can't wait
+for them to experience it. The 14-inch MacBook Pro delivers more
+performance and capabilities than ever. And while it previously started at $1999, it now starts at just $1599. And the 16-inch MacBook Pro, with the monumental performance
+of M3 Pro and M3 Max, still starts at $2499. You can order the new MacBook Pro
+with M3 and M3 Pro today and it'll be available next week. Models with M3 Max will be available
+later in November. There's nothing quite like
+the new MacBook Pro. It's wicked fast. And in Space Black,
+it just looks awesome. And we're not done.
+We have another big treat for our users. We're updating the 24-inch iMac
+for the first time, by giving it the M3 chip. Millions of users around the world,
+from families to business owners, absolutely love the 24-inch iMac. In fact,
+it's the world's best-selling all-in-one. Well tonight,
+thanks to the efficiency of Apple silicon, we're giving iMac a giant leap
+in performance while keeping the same,
+impossibly thin design and spectrum of seven vibrant colors. With M3, iMac is up to two times faster
+than iMac with M1. And you'll feel its speed and power
+in everything you do, from multitasking
+across everyday productivity apps to exploring creative passions,
+like editing high-resolution photos or multiple streams of 4K video, to playing your favorite games,
+like Firmament, which load faster than ever
+and just look incredible. For those who are upgrading
+from an Intel-based iMac, you'll experience a huge difference
+in performance and features. Compared to the most popular
+27-inch models, iMac with M3 is up to
+two and a half times faster. And when compared to the most powerful
+21.5-inch iMac model, it's up to a remarkable four times faster. And you'll love seeing
+everything come to life on the beautiful, large, and immersive
+24-inch, 4.5K Retina display. It's the perfect size and resolution
+to replace both the 4K and the 5K Intel-based models in an even more versatile
+and stunning design. Whichever model you're coming from, you'll appreciate the enormous amount
+of screen real estate on the new iMac display. Along with 11 million pixels,
+500 nits of brightness, and over a billion colors, it's an expansive canvas that lets you
+spread out with all your favorite apps. You also get great features
+like a 1080p FaceTime camera, a six-speaker sound system
+with Spatial Audio, and studio-quality mics, which create an unmatched
+video conferencing experience. In addition, you'll also get the advanced
+technologies of Apple silicon, like the Neural Engine and Media Engine for incredible machine learning
+and video performance, and the option to choose a Magic Keyboard with Touch ID for secure log-in and payments. Finally, the integration of iPhone, iMac,
+and your other Apple devices, together with the performance of M3, boost your creativity and productivity
+in fun, new ways. You can do things like send a message or
+answer a phone call right from your Mac. Or scan a document with your iPhone
+and watch it instantly appear. Altogether,
+the iMac experience is simply unrivaled. So that's the new iMac, with the remarkable performance of M3. Featuring an expansive
+4.5K Retina display, faster wireless connectivity,
+a striking design, and a seamless experience with iPhone, it's the world's best all-in-one. And even with all of these incredible
+and innovative features, iMac still starts at just $1299. You can order it today,
+and it will be available next week. The amazing performance and capabilities
+of Apple silicon, combined with the powerful,
+yet easy-to-use features of macOS, deliver an incredible experience
+that is only possible on a Mac. Now, back to Tim. ♪ ♪ Tim: There's never been a better time
+to experience a Mac. And we're innovating at a tremendous pace! We continue to make huge advances
+in Apple silicon with the incredible new
+M3 family of chips: M3, M3 Pro, and M3 Max. They are the most advanced chips
+ever created for a personal computer, taking the best pro laptops in the world and making them even better! And with M3 coming to iMac, the world's best all-in-one
+gets even more powerful and more capable. MacBook Pro and iMac join the rest
+of our amazing, industry-leading lineup. A lineup made possible
+by the tight collaboration between our world-class hardware, software, and silicon teams. This deep integration is something
+only Apple can deliver. And we never stop innovating. This has been a remarkable year, one where we've taken our products
+and platforms further than ever before, as well as introducing
+entirely new breakthroughs that will shift the way
+we look at technology and the role it plays in our lives
+for years to come. Thank you all for joining us. Have a great night! ♪ ♪ ♪ ♪

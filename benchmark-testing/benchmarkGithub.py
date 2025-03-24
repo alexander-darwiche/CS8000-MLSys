@@ -2,8 +2,6 @@ import torch
 import time
 import whisper
 import os
-import subprocess
-import json
 
 # Configure paths
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -19,7 +17,7 @@ if not file_list:
     exit(1)
 
 # Benchmark configuration
-model_list = ['medium', 'large-v2']
+model_list = ['base', 'tiny', 'small', 'medium', 'large-v2', 'turbo']
 fp16_options = [True, False]
 
 print(f"Using device: {device}")
@@ -44,7 +42,7 @@ for model_name in model_list:
             # Benchmark and save transcripts
             total_time = 0.0
             for file in file_list:
-                start = time.perf_counter()
+                start_time = time.perf_counter()
                 
                 # Transcribe
                 result = model.transcribe(
@@ -54,20 +52,18 @@ for model_name in model_list:
                     fp16=use_fp16
                 )
                 
+                # Calculate and display time for this file
+                elapsed = time.perf_counter() - start_time
+                total_time += elapsed
+                print(f"  {file}: {elapsed:.2f}s")
+                
                 # Save transcript
                 output_file = os.path.join(output_path, f"{os.path.splitext(file)[0]}_{model_name}_fp16_{use_fp16}.txt")
                 with open(output_file, 'w', encoding='utf-8') as f:
                     f.write(result['text'])
-                
-                # Save full results as JSON
-                json_file = os.path.join(output_path, f"{os.path.splitext(file)[0]}_{model_name}_fp16_{use_fp16}.json")
-                with open(json_file, 'w', encoding='utf-8') as f:
-                    json.dump(result, f, indent=2)
-                
-                total_time += time.perf_counter() - start
             
             avg_time = total_time / len(file_list)
-            print(f"Average time per file: {avg_time:.2f}s")
+            print(f"\nAverage time per file: {avg_time:.2f}s")
             print(f"Transcripts saved to: {output_path}")
             
         except Exception as e:
