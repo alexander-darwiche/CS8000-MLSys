@@ -45,6 +45,7 @@ for model_name in model_list:
             # Benchmark and save transcripts
             total_time = 0.0
             for file in file_list:
+                print("Testing the speed of: " + str(file) + " with Model Type: " + str(model_name))
                 start = time.perf_counter()
                 
                 # Transcribe
