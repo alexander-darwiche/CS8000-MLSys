@@ -57,6 +57,8 @@ for model_name in model_list:
                     fp16=use_fp16
                 )
                 
+                output_path = file + "/" + output_path 
+
                 # Save transcript
                 output_file = os.path.join(output_path, f"{os.path.splitext(file)[0]}_{model_name}_fp16_{use_fp16}.txt")
                 with open(output_file, 'w', encoding='utf-8') as f:
