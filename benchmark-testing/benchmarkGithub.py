@@ -64,6 +64,7 @@ for model_name in model_list:
                 output_file = os.path.join(output_path2, f"{os.path.splitext(file)[0]}_{model_name}_fp16_{use_fp16}.txt")
                 with open(output_file, 'w', encoding='utf-8') as f:
                     f.write(result['text'])
+                    predicted_transcript = f.read().strip()
                 
                 # Save full results as JSON
                 json_file = os.path.join(output_path2, f"{os.path.splitext(file)[0]}_{model_name}_fp16_{use_fp16}.json")
@@ -76,11 +77,6 @@ for model_name in model_list:
                 real_transcript_path = os.path.join(output_path2, f"{os.path.splitext(file)[0]}_REAL.txt")
                 with open(real_transcript_path, 'r', encoding='utf-8') as f:
                     real_transcript = f.read().strip()  # Read and remove extra spaces
-
-                # Load Whisper output transcript
-                output_file = os.path.join(output_path2, f"{os.path.splitext(file)[0]}_{model_name}_fp16_{use_fp16}.txt")
-                with open(output_file, 'r', encoding='utf-8') as f:
-                    predicted_transcript = f.read().strip()
 
                 # Compute WER
                 wer = wer(real_transcript, predicted_transcript)
