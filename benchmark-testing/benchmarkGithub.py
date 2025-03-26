@@ -30,7 +30,7 @@ for model_name in model_list:
     # Test with and without FP16 Quantization
     for use_fp16 in fp16_options:
         print(f"\nBenchmarking {model_name} with FP16={use_fp16}")
-        
+        torch.cuda.empty_cache()
         try:
             # Load model
             model = whisper.load_model(
