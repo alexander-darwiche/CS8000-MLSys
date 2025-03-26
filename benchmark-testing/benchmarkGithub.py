@@ -20,7 +20,7 @@ if not file_list:
     exit(1)
 
 # Benchmark configuration
-model_list = ['base','small','tiny','medium','large-v2','turbo']
+model_list = ['base']#,'small','tiny','medium','large-v2','turbo']
 fp16_options = [True, False]
 
 print(f"Using device: {device}")
