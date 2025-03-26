@@ -21,7 +21,7 @@ if not file_list:
 
 # Benchmark configuration
 model_list = ['base']#,'small','tiny','medium','large-v2','turbo']
-fp16_options = [True, False]
+fp16_options = [False]#[True, False]
 
 print(f"Using device: {device}")
 print(f"Found {len(file_list)} audio files")
@@ -77,6 +77,7 @@ for model_name in model_list:
                 with open(real_transcript_path, 'r', encoding='utf-8') as f:
                     real_transcript = f.read().strip()  # Read and remove extra spaces
                 
+                import pdb;pdb.set_trace()
                 # Load real transcript
                 predicted_transcript_path = os.path.join(output_path2, f"{os.path.splitext(file)[0]}_{model_name}_fp16_{use_fp16}.txt")
                 with open(predicted_transcript_path, 'r', encoding='utf-8') as f:
