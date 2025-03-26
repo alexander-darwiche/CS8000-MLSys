@@ -87,6 +87,8 @@ for model_name in model_list:
                 wer2 = wer(real_transcript, predicted_transcript)
                 print(f"WER: {wer2:.2%}")
                 print(f"Time per file: {time_per:.2f}s")
+                peak_memory = torch.cuda.max_memory_allocated() / 1e6
+                print(f"Peak VRAM Usage: {peak_memory:.2f} MB")
 
             avg_time = total_time / len(file_list)
             print(f"Average time per file: {avg_time:.2f}s")
