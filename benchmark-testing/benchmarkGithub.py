@@ -20,7 +20,7 @@ if not file_list:
     exit(1)
 
 # Benchmark configuration
-model_list = ['base']#,'small','tiny','medium','large-v2','turbo']
+model_list = ['base','small']#,'tiny','medium','large-v2','turbo']
 fp16_options = [True, False]
 
 print(f"Using device: {device}")
@@ -71,6 +71,7 @@ for model_name in model_list:
                     json.dump(result, f, indent=2)
                 
                 total_time += time.perf_counter() - start
+                time_per = time.perf_counter() - start
                 
                 # Load real transcript
                 real_transcript_path = os.path.join(output_path2, f"{os.path.splitext(file)[0]}_REAL.txt")
@@ -85,6 +86,7 @@ for model_name in model_list:
                 # Compute WER
                 wer2 = wer(real_transcript, predicted_transcript)
                 print(f"WER: {wer2:.2%}")
+                print(f"Time per file: {time_per:.2f}s")
 
             avg_time = total_time / len(file_list)
             print(f"Average time per file: {avg_time:.2f}s")
