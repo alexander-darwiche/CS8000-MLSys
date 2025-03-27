@@ -93,7 +93,12 @@ for model_name in model_list:
             avg_time = total_time / len(file_list)
             print(f"Average time per file: {avg_time:.2f}s")
             print(f"Transcripts saved to: {output_path2}")
-            
+            import gc  # Python garbage collector
+
+            del model
+            gc.collect()  # Force garbage collection
+            torch.cuda.empty_cache()
+            torch.cuda.ipc_collect()
         except Exception as e:
             print(f"Error with {model_name} FP16={use_fp16}: {str(e)}")
         finally:
