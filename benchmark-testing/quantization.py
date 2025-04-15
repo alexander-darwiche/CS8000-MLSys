@@ -29,7 +29,7 @@ print(f"Found {len(file_list)} audio files")
 for model_name in model_list:
     # Test with and without FP16 Quantization
     for quant_mode in quantization_options:
-        print(f"\nBenchmarking {model_name} with FP16={quant_mode}")
+        print(f"\nBenchmarking {model_name} with Quantization Mode={quant_mode}")
         torch.cuda.empty_cache()
         try:
             # Load model
