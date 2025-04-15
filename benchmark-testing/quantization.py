@@ -6,9 +6,6 @@ import subprocess
 import json
 from jiwer import wer
 
-
-
-
 # Configure paths
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 audio_path = r"audio_files"
@@ -24,15 +21,15 @@ if not file_list:
 
 # Benchmark configuration
 model_list = ['base','small']#,'tiny','medium','large-v2','turbo']
-fp16_options = [True, False]
+quantization_options = ['full', 'fp16','dynamic']
 
 print(f"Using device: {device}")
 print(f"Found {len(file_list)} audio files")
 
 for model_name in model_list:
     # Test with and without FP16 Quantization
-    for use_fp16 in fp16_options:
-        print(f"\nBenchmarking {model_name} with FP16={use_fp16}")
+    for quant_mode in quantization_options:
+        print(f"\nBenchmarking {model_name} with FP16={quant_mode}")
         torch.cuda.empty_cache()
         try:
             # Load model
@@ -41,15 +38,15 @@ for model_name in model_list:
                 device=device,
                 download_root=r"models"
             )
-
-            quantized_model = torch.quantization.quantize_dynamic(
-                model, {torch.nn.Linear}, dtype=torch.qint8
-            )
-
+            if quant_mode == 'Dynamic':
+                model = torch.quantization.quantize_dynamic(
+                    model, {torch.nn.Linear}, dtype=torch.qint8
+                )
             
             # Warmup
+            use_fp16 = True if quant_mode == 'fp16' else False
             test_file = os.path.join(audio_path, file_list[0])
-            quantized_model.transcribe(test_file, language='en', task='transcribe', fp16=use_fp16)
+            model.transcribe(test_file, language='en', task='transcribe', fp16=use_fp16)
             
             # Benchmark and save transcripts
             total_time = 0.0
@@ -58,7 +55,7 @@ for model_name in model_list:
                 start = time.perf_counter()
                 
                 # Transcribe
-                result = quantized_model.transcribe(
+                result = model.transcribe(
                     os.path.join(audio_path, file),
                     language='en',
                     task='transcribe',
@@ -69,12 +66,12 @@ for model_name in model_list:
                 output_path2 = output_path + "/" + file_name
 
                 # Save transcript
-                output_file = os.path.join(output_path2, f"{os.path.splitext(file)[0]}_{model_name}_fp16_{use_fp16}.txt")
+                output_file = os.path.join(output_path2, f"{os.path.splitext(file)[0]}_{model_name}_{quant_mode}.txt")
                 with open(output_file, 'w', encoding='utf-8') as f:
                     f.write(result['text'])
                 
                 # Save full results as JSON
-                json_file = os.path.join(output_path2, f"{os.path.splitext(file)[0]}_{model_name}_fp16_{use_fp16}.json")
+                json_file = os.path.join(output_path2, f"{os.path.splitext(file)[0]}_{model_name}_{quant_mode}.json")
                 with open(json_file, 'w', encoding='utf-8') as f:
                     json.dump(result, f, indent=2)
                 
@@ -87,7 +84,7 @@ for model_name in model_list:
                     real_transcript = f.read().strip()  # Read and remove extra spaces
                 
                 # Load real transcript
-                predicted_transcript_path = os.path.join(output_path2, f"{os.path.splitext(file)[0]}_{model_name}_fp16_{use_fp16}.txt")
+                predicted_transcript_path = os.path.join(output_path2, f"{os.path.splitext(file)[0]}_{model_name}_{quant_mode}.txt")
                 with open(predicted_transcript_path, 'r', encoding='utf-8') as f:
                     predicted_transcript = f.read().strip()  # Read and remove extra spaces
 
@@ -103,9 +100,8 @@ for model_name in model_list:
             print(f"Transcripts saved to: {output_path2}")
             
         except Exception as e:
-            print(f"Error with {model_name} FP16={use_fp16}: {str(e)}")
+            print(f"Error with {model_name} FP16={quant_mode}: {str(e)}")
         finally:
             if 'model' in locals():
-                del quantized_model
                 del model
                 torch.cuda.empty_cache()
