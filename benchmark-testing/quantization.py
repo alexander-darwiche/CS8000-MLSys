@@ -5,6 +5,18 @@ import os
 import subprocess
 import json
 from jiwer import wer
+import csv
+
+# CSV output config
+csv_output_path = "benchmark_results.csv"
+csv_headers = ["model", "quant_mode", "file", "time_sec", "wer", "vram_mb"]
+
+# Create CSV file and write headers
+with open(csv_output_path, mode="w", newline='', encoding='utf-8') as f:
+    writer = csv.writer(f)
+    writer.writerow(csv_headers)
+
+
 
 # Configure paths
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -38,7 +50,7 @@ for model_name in model_list:
                 device=device,
                 download_root=r"models"
             )
-            if quant_mode == 'Dynamic':
+            if quant_mode == 'dynamic':
                 model = torch.quantization.quantize_dynamic(
                     model, {torch.nn.Linear}, dtype=torch.qint8
                 )
@@ -98,7 +110,19 @@ for model_name in model_list:
             avg_time = total_time / len(file_list)
             print(f"Average time per file: {avg_time:.2f}s")
             print(f"Transcripts saved to: {output_path2}")
-            
+            # Append results to CSV
+            with open(csv_output_path, mode="a", newline='', encoding='utf-8') as f:
+                writer = csv.writer(f)
+                writer.writerow([
+                    model_name,
+                    quant_mode,
+                    file,
+                    f"{time_per:.2f}",
+                    f"{wer2:.4f}",
+                    f"{peak_memory:.2f}"
+                ])
+
+
         except Exception as e:
             print(f"Error with {model_name} FP16={quant_mode}: {str(e)}")
         finally:
