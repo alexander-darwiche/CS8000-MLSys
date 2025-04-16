@@ -1,9 +1,10 @@
 import os
 import torchaudio
 from tqdm import tqdm
+from torch.utils.data import Subset
 
-dataset = torchaudio.datasets.LIBRISPEECH(".", url="test-clean", download=True)
-dataset = dataset[:10]
+dataset = torchaudio.datasets.LIBRISPEECH(".", url="dev-clean", download=True)
+dataset = Subset(dataset, list(range(20))) 
 
 out_audio_dir = "audio_files"
 out_ref_dir = "transcripts"
