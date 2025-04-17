@@ -1,0 +1,2 @@
+model,winograd_mode,file,time_sec,wer,vram_mb
+base,True,MLKDream_64kb.mp3,15.12,0.2436,439.24

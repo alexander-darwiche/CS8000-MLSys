@@ -2,6 +2,7 @@ import platform
 import ctypes.util
 import warnings
 import os
+import csv
 
 # Monkey-patch ctypes.util.find_library on Windows
 if platform.system() == "Windows":
@@ -21,7 +22,16 @@ import whisper
 import json
 from jiwer import wer
 
-# Configuration
+# CSV Configuration
+csv_output_path = "winograd_benchmark_results.csv"
+csv_headers = ["model", "winograd_mode", "file", "time_sec", "wer", "vram_mb"]
+
+# Create CSV and write headers
+with open(csv_output_path, mode='w', newline='', encoding='utf-8') as f:
+    writer = csv.writer(f)
+    writer.writerow(csv_headers)
+
+# General Configuration
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 audio_path = "audio_files"
 output_path = "transcripts_winograd"
@@ -32,8 +42,8 @@ if not file_list:
     print(f"No audio files found in {audio_path}")
     exit(1)
 
-model_list = ['base','small']#,'tiny','medium','large-v2','turbo']
-winograd_options = [True, False]  # Test with/without cuDNN benchmarking
+model_list = ['base','small']  # Add other models as needed
+winograd_options = [True, False]
 
 print(f"Using device: {device}")
 print(f"Found {len(file_list)} audio files")
@@ -44,85 +54,70 @@ for model_name in model_list:
         torch.cuda.empty_cache()
         
         try:
-            # Enable/disable cuDNN auto-tuner for Winograd optimizations
             torch.backends.cudnn.benchmark = use_winograd
-            
-            # Model loading – this call might print a safe unpickling warning which we've now suppressed.
             model = whisper.load_model(
                 name=model_name,
                 device=device,
                 download_root="models"
             )
 
-            # Warmup with the first file
+            # Warmup
             test_file = os.path.join(audio_path, file_list[0])
             warmup_result = model.transcribe(test_file, language='en', task='transcribe')
-            if warmup_result is None:
-                print("Warmup transcription failed. Skipping benchmark for this model configuration.")
-                continue
 
-            # Benchmark
-            total_time = 0.0
+            # Process each file
             for file in file_list:
-                print(f"Processing {file}...")
                 start_time = time.perf_counter()
-                
                 result = model.transcribe(
                     os.path.join(audio_path, file),
                     language='en',
                     task='transcribe'
                 )
-                
-                # Check that the result is valid
-                if result is None or 'text' not in result:
-                    print(f"Transcription failed for {file}. Skipping.")
-                    continue
 
                 # Save results
                 base_name = os.path.splitext(file)[0]
                 output_dir = os.path.join(output_path, base_name)
                 os.makedirs(output_dir, exist_ok=True)
 
-                transcript_filename = os.path.join(
-                    output_dir, f"{base_name}_{model_name}_winograd_{use_winograd}.txt"
-                )
+                # Save transcript and JSON
+                transcript_filename = os.path.join(output_dir, f"{base_name}_{model_name}_winograd_{use_winograd}.txt")
                 with open(transcript_filename, 'w') as f:
                     f.write(result['text'])
                 
-                json_filename = os.path.join(
-                    output_dir, f"{base_name}_{model_name}_winograd_{use_winograd}.json"
-                )
+                json_filename = os.path.join(output_dir, f"{base_name}_{model_name}_winograd_{use_winograd}.json")
                 with open(json_filename, 'w') as f:
                     json.dump(result, f, indent=2)
 
                 # Calculate metrics
                 duration = time.perf_counter() - start_time
-                total_time += duration
+                wer_score = None
+                peak_mem = None
 
-                # Check if the expected real transcript file exists before reading
+                # Check for real transcript
                 real_transcript_path = os.path.join(output_dir, f"{base_name}_REAL.txt")
                 if os.path.exists(real_transcript_path):
                     with open(real_transcript_path, 'r') as f:
                         real_transcript = f.read().strip()
-                else:
-                    print(f"Real transcript file for {file} not found. Skipping WER calculation.")
-                    real_transcript = None
-
-                if real_transcript:
                     wer_score = wer(real_transcript, result['text'].strip())
-                    print(f"Time: {duration:.2f}s | WER: {wer_score:.2%}", end="")
-                else:
-                    print(f"Time: {duration:.2f}s | WER: N/A", end="")
 
-                # Compute VRAM usage if CUDA is available
+                # Get VRAM usage
                 if torch.cuda.is_available():
-                    peak_mem = torch.cuda.max_memory_allocated() / 1e6
-                    print(f" | Peak VRAM: {peak_mem:.2f}MB")
-                else:
-                    print()
+                    peak_mem = torch.cuda.max_memory_allocated() / 1e6  # Convert to MB
 
-            print(f"\nAverage time per file: {total_time/len(file_list):.2f}s")
-            
+                # Write to CSV
+                with open(csv_output_path, mode='a', newline='', encoding='utf-8') as csv_file:
+                    writer = csv.writer(csv_file)
+                    writer.writerow([
+                        model_name,
+                        use_winograd,
+                        file,
+                        f"{duration:.2f}",
+                        f"{wer_score:.4f}" if wer_score is not None else "",
+                        f"{peak_mem:.2f}" if peak_mem is not None else ""
+                    ])
+
+                print(f"Processed {file} | Time: {duration:.2f}s | WER: {wer_score or 'N/A'} | VRAM: {peak_mem or 'N/A'}MB")
+
         except Exception as e:
             print(f"Error: {str(e)}")
         finally:
