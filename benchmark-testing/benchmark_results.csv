@@ -1,0 +1,9 @@
+model,quant_mode,file,time_sec,wer,vram_mb,bytes_per_instr
+base,full,MLKDream_64kb.mp3,10.86,0.2561,439.24,0.2873
+base,full,WWDC_2018_Keynote.mp3,137.22,0.2677,439.24,0.2873
+base,dynamic,MLKDream_64kb.mp3,11.47,0.2561,593.40,0.2873
+base,dynamic,WWDC_2018_Keynote.mp3,135.75,0.2818,593.40,0.2873
+small,full,MLKDream_64kb.mp3,23.88,0.1692,1478.68,0.9623
+small,full,WWDC_2018_Keynote.mp3,239.68,0.2489,1478.68,0.9623
+small,dynamic,MLKDream_64kb.mp3,22.58,0.1488,1946.21,0.9623
+small,dynamic,WWDC_2018_Keynote.mp3,243.37,0.2928,1946.21,0.9623
