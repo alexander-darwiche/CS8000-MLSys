@@ -26,7 +26,7 @@ if platform.system() == "Windows":
 warnings.filterwarnings("ignore", message=".*weights_only.*")
 
 # CSV Setup
-csv_output_path = "quant_benchmark_results.csv"
+csv_output_path = "quant_benchmark_results2.csv"
 csv_headers = [
     "model", "quant_mode", "file", "time_sec", "wer",
     "vram_mb", "param_mem_mb", "activation_mem_mb", "bytes_per_instr"
@@ -46,7 +46,7 @@ if not file_list:
     exit(1)
 
 # Standard Whisper models (removed 'turbo' which was causing issues)
-model_list = ['tiny', 'base', 'small', 'medium', 'large-v2']
+model_list = [ 'medium', 'large-v2']
 quantization_modes = ['full', 'fp16', 'dynamic']
 model_flops = {}
 
